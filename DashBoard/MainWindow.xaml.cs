@@ -27,22 +27,31 @@ namespace DashBoard
 
         private void PART_TITLEBAR_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            DragMove();
         }
 
         private void PART_MAXIMIZE_RESTORE_Click(object sender, RoutedEventArgs e)
         {
-
+            if (WindowState == WindowState.Normal)
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                Width = 1000;
+                Height = 650;
+                WindowState = WindowState.Normal;
+            }
         }
 
         private void PART_MINIMIZE_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
 
         private void PART_CLOSE_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
     }
 }
